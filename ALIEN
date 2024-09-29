@@ -1,0 +1,50 @@
+if (direction == 1)
+{
+
+// rechts Bewegung
+grid[y][x] = 0;
+grid[y][x + direction] = ALIEN;
+
+    // Wenn Rand erreicht
+    if (grid[y][MAX] == ALIEN)
+    {
+        // Loop..
+        for (i = 0; i < 19; i++) 
+        {
+            // .. Nimm alle ALIENS mit
+            if (grid[y][i] == ALIEN)
+            {
+                // push runter
+                grid[y][i] = 0;
+                grid[y + 1 ][i] = ALIEN;  
+            }    
+        } 
+        
+        // Zum Schluss: Wechsle Richtung
+        direction = -1;     
+    }
+}
+
+else if (direction == -1) 
+{
+    // links Bewegung
+    grid[y][x] = 0;
+    grid[y][x + direction] = ALIEN;
+
+    // Wenn Rand erreicht
+    if (grid[y][MIN] == ALIEN)
+
+        // Loop...
+        for (i = 0; i < 19; i++) 
+        {
+            //... Nimm alle ALIENS
+            if (grid[y][i] == ALIEN)
+            {
+                // push runter
+                grid[y][i] = 0;
+                grid[y + 1][i] = ALIEN;  
+            }
+        }
+        // Zum Schluss: Wechsle Richtung
+        direction = 1;
+}
